@@ -20,7 +20,9 @@
         "noFallthroughCasesInSwitch": true,
         "baseUrl": "src",
         "paths": {
-            "~constants": ["./constants"]
+            "~constants": ["./constants"],
+            "~pages": ["./pages"],
+            "~router": ["./router"]
         }
     },
     "include": ["src"]
