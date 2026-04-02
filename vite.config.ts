@@ -9,7 +9,8 @@ export default defineConfig({
             "~components": resolve(__dirname, "src/components"),
             "~constants": resolve(__dirname, "src/constants"),
             "~pages": resolve(__dirname, "src/pages"),
-            "~router": resolve(__dirname, "src/router")
+            "~router": resolve(__dirname, "src/router"),
+            "~styles": resolve(__dirname, "src/styles")
         }
     }
 });
