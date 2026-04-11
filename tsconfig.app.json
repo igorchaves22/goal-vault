@@ -18,13 +18,12 @@
         "noUnusedParameters": true,
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
-        "baseUrl": "src",
         "paths": {
-            "~components/*": ["./components/*"],
-            "~constants": ["./constants"],
-            "~pages": ["./pages"],
-            "~router": ["./router"],
-            "~styles": ["./styles"]
+            "~components/*": ["./src/components/*"],
+            "~constants": ["./src/constants"],
+            "~pages": ["./src/pages"],
+            "~router": ["./src/router"],
+            "~styles": ["./src/styles"]
         }
     },
     "include": ["src"]
