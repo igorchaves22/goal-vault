@@ -6,14 +6,14 @@ import type { StyledBoxProps } from "./types";
 export const StyledBox = styled.div<StyledBoxProps>`
     ${ComponentFlexBox};
 
-    ${({ theme, $isContainer }) =>
+    ${({ theme, $isContainer, $headerHeight }) =>
         applyStylesIfTrue(
             $isContainer,
             css`
                 ${ComponentViewportBox};
                 ${ComponentLayoutBox};
 
-                padding-block: ${theme.spacing[6]} ${theme.spacing[12]};
+                padding-block: ${`calc(${$headerHeight}px + ${theme.spacing[6]})`} ${theme.spacing[12]};
                 grid-template-rows: auto;
                 align-content: stretch;
             `

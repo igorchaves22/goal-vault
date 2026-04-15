@@ -1,17 +1,23 @@
 import { Outlet } from "react-router";
+import { useHook } from "./hooks";
 import * as S from "./styles";
 
-export const Main = () => (
-    <S.StyledBox
-        as="main"
-        $isContainer
-    >
+export const Main = () => {
+    const { headerHeight } = useHook();
+
+    return (
         <S.StyledBox
-            $isSubContainer
-            $direction="column"
-            $gap={10}
+            as="main"
+            $isContainer
+            $headerHeight={headerHeight}
         >
-            <Outlet />
+            <S.StyledBox
+                $isSubContainer
+                $direction="column"
+                $gap={10}
+            >
+                <Outlet />
+            </S.StyledBox>
         </S.StyledBox>
-    </S.StyledBox>
-);
+    );
+};

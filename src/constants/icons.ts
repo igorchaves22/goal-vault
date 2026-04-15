@@ -1,5 +1,7 @@
-import { X } from "lucide-react";
+import { Moon, Sun, X } from "lucide-react";
 
 export const ICONS = {
-    X
+    X,
+    Sun,
+    Moon
 } as const;

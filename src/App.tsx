@@ -1,11 +1,14 @@
 import { RouterProvider } from "react-router";
+import { LayoutContextProvider } from "~contexts/layout";
 import { ThemeContextProvider } from "~contexts/theme";
 import { router } from "~router";
 
 export function App() {
     return (
         <ThemeContextProvider>
-            <RouterProvider router={router} />
+            <LayoutContextProvider>
+                <RouterProvider router={router} />
+            </LayoutContextProvider>
         </ThemeContextProvider>
     );
 }

@@ -7,6 +7,12 @@ export const ComponentFlexBox = css`
     ${MixinFlow({})};
 `;
 
+export const ComponentGridBox = css`
+    ${MixinBox({})};
+    ${MixinDisplayGrid()};
+    ${MixinFlow({})};
+`;
+
 export const ComponentViewportBox = css`
     ${MixinBox({ $height: "auto" })};
     ${MixinFlow({ $gap: 0 })};
@@ -23,6 +29,36 @@ export const ComponentLayoutBox = css`
     padding: ${({ theme }) => theme.spacing[4]};
     grid-template-columns: ${({ theme }) => `min(100%, ${theme.layout.max})`};
     grid-auto-rows: min-content;
+`;
+
+export const ComponentButton = css`
+    ${MixinBox({ $width: "max-content", $bgColor: "transparent" })};
+    ${MixinDisplayFlex({ $wrap: "nowrap" })};
+    ${MixinFlow({})};
+    ${MixinText({})};
+
+    border: none;
+    cursor: pointer;
+    transition: all 0.12s ease-out;
+
+    &:enabled {
+        transition: all 0.1s ease-out;
+
+        &:hover {
+            filter: brightness(0.88);
+            transform: scale(1.02);
+        }
+
+        &:active {
+            filter: brightness(0.85);
+            transform: scale(0.98);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
 `;
 
 export const ComponentText = css`
