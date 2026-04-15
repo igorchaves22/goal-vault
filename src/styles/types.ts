@@ -8,7 +8,7 @@ export type MixinFlowProps = Pick<StylesProps, "$gap">;
 export type MixinTextProps = Pick<StylesProps, "$color" | "$fontWeight" | "$fontSize" | "$textAlign">;
 
 export interface StylesProps {
-    $width?: "max-content" | "100%" | number;
+    $width?: "max-content" | "fit-content" | "100%" | number;
     $height?: "min-content" | "auto" | number;
     $position?: "relative" | "absolute" | "fixed";
     $zIndex?: number;
