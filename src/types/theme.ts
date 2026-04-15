@@ -8,6 +8,7 @@ export type ThemeColorKeys = keyof (ThemeColorStatic & ThemeColorLight);
 export type ThemeSpacingKeys = keyof ThemeVariables["spacing"];
 export type ThemeTextWeightKeys = keyof ThemeVariables["text"]["weight"];
 export type ThemeTextSizeKeys = keyof ThemeVariables["text"]["size"];
+export type ThemeIconSizeKeys = keyof ThemeVariables["iconSize"];
 
 export interface Theme extends ThemeVariables {
     color: ThemeColorStatic & ThemeColorLight;
