@@ -5,6 +5,7 @@ export type ThemeVariables = typeof VARIABLES;
 export type ThemeColorStatic = typeof COLOR_PALETTE.static;
 export type ThemeColorLight = typeof COLOR_PALETTE.mode.light;
 export type ThemeColorKeys = keyof (ThemeColorStatic & ThemeColorLight);
+export type ThemeSpacingKeys = keyof ThemeVariables["spacing"];
 
 export interface Theme extends ThemeVariables {
     color: ThemeColorStatic & ThemeColorLight;

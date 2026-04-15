@@ -1,7 +1,3 @@
-import { Outlet } from "react-router";
+import { Main } from "../Main";
 
-export const RootLayout = () => (
-    <div>
-        <Outlet />
-    </div>
-);
+export const RootLayout = () => <Main />;
