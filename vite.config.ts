@@ -11,8 +11,11 @@ export default defineConfig({
             "~constants": resolve(__dirname, "src/constants"),
             "~contexts": resolve(__dirname, "src/contexts"),
             "~helpers": resolve(__dirname, "src/helpers"),
+            "~hooks": resolve(__dirname, "src/hooks"),
             "~pages": resolve(__dirname, "src/pages"),
             "~router": resolve(__dirname, "src/router"),
+            "~services": resolve(__dirname, "src/services"),
+            "~store": resolve(__dirname, "src/store"),
             "~styles": resolve(__dirname, "src/styles"),
             "~types": resolve(__dirname, "src/types"),
             "~utils": resolve(__dirname, "src/utils")

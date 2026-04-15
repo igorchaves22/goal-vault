@@ -24,8 +24,11 @@
             "~constants": ["./src/constants"],
             "~contexts/*": ["./src/contexts/*"],
             "~helpers": ["./src/helpers"],
+            "~hooks": ["./src/hooks"],
             "~pages": ["./src/pages"],
             "~router": ["./src/router"],
+            "~services": ["./src/services"],
+            "~store": ["./src/store"],
             "~styles": ["./src/styles"],
             "~types": ["./src/types"],
             "~utils": ["./src/utils"]
