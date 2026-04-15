@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { MixinBox, MixinDisplayFlex, MixinDisplayGrid, MixinFlow, MixinLayer } from "./mixins";
+import { MixinBox, MixinDisplayFlex, MixinDisplayGrid, MixinFlow, MixinLayer, MixinText } from "./mixins";
 
 export const ComponentFlexBox = css`
     ${MixinBox({})};
@@ -23,4 +23,27 @@ export const ComponentLayoutBox = css`
     padding: ${({ theme }) => theme.spacing[4]};
     grid-template-columns: ${({ theme }) => `min(100%, ${theme.layout.max})`};
     grid-auto-rows: min-content;
+`;
+
+export const ComponentText = css`
+    ${MixinBox({})};
+    ${MixinText({})};
+`;
+
+export const ComponentLink = css`
+    ${MixinBox({})};
+    ${MixinDisplayFlex({ $wrap: "nowrap" })};
+    ${MixinFlow({ $gap: 1 })};
+    ${MixinText({})};
+
+    text-decoration: none;
+    transition: filter 0.1s ease-out;
+
+    &:hover {
+        filter: brightness(0.88);
+    }
+
+    &:active {
+        filter: brightness(0.85);
+    }
 `;

@@ -67,6 +67,19 @@ export const createStyles = (props: StylesProps) => {
             color: ${({ theme }) => theme.color[props.$color!]};
         `
     );
+    const font = applyStylesIfTrue(
+        props.$fontWeight || props.$fontSize,
+        css`
+            font: ${({ theme }) =>
+                `${theme.text.weight[props.$fontWeight ?? "regular"]} ${theme.text.size[props.$fontSize ?? "sm"]} / normal ${theme.text.family}`};
+        `
+    );
+    const textAlign = applyStylesIfTrue(
+        props.$textAlign,
+        css`
+            text-align: ${props.$textAlign};
+        `
+    );
 
     return css`
         ${width};
@@ -78,6 +91,8 @@ export const createStyles = (props: StylesProps) => {
         ${gap};
         ${bgColor};
         ${color};
+        ${font};
+        ${textAlign};
     `;
 };
 

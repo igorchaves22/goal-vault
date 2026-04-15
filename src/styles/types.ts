@@ -1,10 +1,11 @@
-import type { ThemeColorKeys, ThemeSpacingKeys } from "~types";
+import type { ThemeColorKeys, ThemeSpacingKeys, ThemeTextSizeKeys, ThemeTextWeightKeys } from "~types";
 
 export type MixinBoxProps = Pick<StylesProps, "$width" | "$height" | "$bgColor">;
 export type MixinScrollbarProps = Pick<StylesProps, "$width" | "$height" | "$bgColor" | "$color">;
 export type MixinLayerProps = Pick<StylesProps, "$position" | "$zIndex">;
 export type MixinDisplayFlexProps = Pick<StylesProps, "$grow" | "$shrink" | "$basis" | "$direction" | "$wrap">;
 export type MixinFlowProps = Pick<StylesProps, "$gap">;
+export type MixinTextProps = Pick<StylesProps, "$color" | "$fontWeight" | "$fontSize" | "$textAlign">;
 
 export interface StylesProps {
     $width?: "max-content" | "100%" | number;
@@ -19,4 +20,7 @@ export interface StylesProps {
     $gap?: ThemeSpacingKeys;
     $bgColor?: ThemeColorKeys;
     $color?: ThemeColorKeys;
+    $fontWeight?: ThemeTextWeightKeys;
+    $fontSize?: ThemeTextSizeKeys;
+    $textAlign?: "start" | "end" | "center" | "justify";
 }

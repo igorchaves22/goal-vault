@@ -5,7 +5,8 @@ import type {
     MixinDisplayFlexProps,
     MixinFlowProps,
     MixinLayerProps,
-    MixinScrollbarProps
+    MixinScrollbarProps,
+    MixinTextProps
 } from "./types";
 
 export const MixinBox = (props: MixinBoxProps) =>
@@ -75,3 +76,11 @@ export const MixinFlow = (props: MixinFlowProps) => css`
     place-content: center;
     place-items: center;
 `;
+
+export const MixinText = (props: MixinTextProps) =>
+    createStyles({
+        $color: props.$color ?? "primary",
+        $fontWeight: props.$fontWeight ?? "regular",
+        $fontSize: props.$fontSize ?? "sm",
+        $textAlign: props.$textAlign ?? "center"
+    });
