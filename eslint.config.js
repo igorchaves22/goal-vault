@@ -30,6 +30,7 @@ export default defineConfig([
             "import-helpers": importHelpers
         },
         rules: {
+            "@typescript-eslint/no-empty-object-type": "off",
             "import-helpers/order-imports": [
                 "warn",
                 {

@@ -1,12 +1,11 @@
 import { RouterProvider } from "react-router";
+import { ThemeContextProvider } from "~contexts/theme";
 import { router } from "~router";
-import { GlobalStyles } from "~styles";
 
 export function App() {
     return (
-        <>
-            <GlobalStyles />
+        <ThemeContextProvider>
             <RouterProvider router={router} />
-        </>
+        </ThemeContextProvider>
     );
 }

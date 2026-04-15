@@ -1,4 +1,2 @@
-export * from "./global";
-export * from "./app";
 export * from "./styles";
 export * from "./theme";

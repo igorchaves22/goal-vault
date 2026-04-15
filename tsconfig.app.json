@@ -19,11 +19,16 @@
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
         "paths": {
+            "~assets/*": ["./src/assets/*"],
             "~components/*": ["./src/components/*"],
             "~constants": ["./src/constants"],
+            "~contexts/*": ["./src/contexts/*"],
+            "~helpers": ["./src/helpers"],
             "~pages": ["./src/pages"],
             "~router": ["./src/router"],
-            "~styles": ["./src/styles"]
+            "~styles": ["./src/styles"],
+            "~types": ["./src/types"],
+            "~utils": ["./src/utils"]
         }
     },
     "include": ["src"]
