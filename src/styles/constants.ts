@@ -5,7 +5,12 @@ export const COLOR_PALETTE = {
         success: "#2eb86b",
         error: "#d94444",
         warning: "#d4952a",
-        info: "#4a90d9"
+        info: "#4a90d9",
+        travel: "#368ce2",
+        education: "#8c47d1",
+        emergency: "#df3a3a",
+        health: "#2bab6b",
+        other: "#737b8c"
     },
     mode: {
         light: {

@@ -1,5 +1,6 @@
 import bullseyeSvg from "~assets/svg/bullseye.svg";
 import { renderElementIfTrue } from "~helpers";
+import { GoalsList } from "../GoalsList";
 import { GoalsStats } from "../GoalsStats";
 import { useHook } from "./hooks";
 import * as S from "./styles";
@@ -8,7 +9,10 @@ export const GoalsLayout = () => {
 
     return renderElementIfTrue(
         hasData,
-        <GoalsStats />,
+        <>
+            <GoalsStats />
+            <GoalsList />
+        </>,
         <S.StyledBox
             as="section"
             $direction="column"

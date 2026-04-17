@@ -1,3 +1,5 @@
+export type Category = "travel" | "education" | "emergency" | "health" | "other";
+
 export interface Goal {
     id: number;
     name: string;

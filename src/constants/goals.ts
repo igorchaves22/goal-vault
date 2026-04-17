@@ -22,3 +22,10 @@ export const GOALS_INITIAL_STATE: GoalsState = {
         }
     }
 };
+export const CATEGORY = {
+    travel: "✈️ travel",
+    education: "📚 education",
+    emergency: "🚨 emergency",
+    health: "💚 health",
+    other: "📌 other"
+} as const;
