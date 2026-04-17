@@ -1,7 +1,10 @@
-import { Moon, Sun, X } from "lucide-react";
+import { CircleCheck, Goal, Moon, Sun, TrendingUp, X } from "lucide-react";
 
 export const ICONS = {
     X,
     Sun,
-    Moon
+    Moon,
+    Goal,
+    TrendingUp,
+    CircleCheck
 } as const;
