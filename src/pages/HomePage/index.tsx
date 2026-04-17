@@ -1,5 +1,3 @@
-export const HomePage = () => (
-    <section>
-        <p>HomePage</p>
-    </section>
-);
+import { GoalsLayout } from "~components/features/goals";
+
+export const HomePage = () => <GoalsLayout />;
