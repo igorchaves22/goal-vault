@@ -10,5 +10,5 @@ export interface StyledBoxProps extends Pick<
     $progressBar?: number;
 }
 export interface StyledTextProps extends Pick<StylesProps, "$color" | "$fontWeight" | "$fontSize" | "$textAlign"> {}
-export interface UseHookProps extends Pick<Goal, "dates"> {}
+export interface UseHookProps extends Pick<Goal, "budget" | "dates"> {}
 export interface GoalCardProps extends Goal {}

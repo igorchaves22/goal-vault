@@ -3,7 +3,7 @@ import { GOALS_DB_STORE_NAMES, GOALS_SLICE_NAME } from "~constants";
 import { getGoalsFromDB, openGoalsDB, setGoalsToDB } from "~services";
 import type { RootState } from "../store";
 import { goalsSlice } from "./slice";
-import type { AddGoalPayload, EditGoalPayload } from "./types";
+import type { AddGoalPayload, ContributePayload, EditGoalPayload } from "./types";
 
 export const loadDBThunk = createAsyncThunk(`${GOALS_SLICE_NAME}/loadDB`, async (_, { dispatch }) => {
     const db = await openGoalsDB();
@@ -56,6 +56,21 @@ export const deleteGoalThunk = createAsyncThunk(
     `${GOALS_SLICE_NAME}/deleteGoal`,
     async (payload: number, { dispatch, getState }) => {
         dispatch(goalsSlice.actions.deleteGoal(payload));
+
+        const state = (getState() as RootState).goals;
+        const db = await openGoalsDB();
+
+        await Promise.all([
+            setGoalsToDB(db, GOALS_DB_STORE_NAMES.goals, state.data.goals),
+            setGoalsToDB(db, GOALS_DB_STORE_NAMES.stats, state.data.stats)
+        ]);
+    }
+);
+
+export const contributeToGoalThunk = createAsyncThunk(
+    `${GOALS_SLICE_NAME}/contributeToGoal`,
+    async (payload: ContributePayload, { dispatch, getState }) => {
+        dispatch(goalsSlice.actions.contributeToGoal(payload));
 
         const state = (getState() as RootState).goals;
         const db = await openGoalsDB();

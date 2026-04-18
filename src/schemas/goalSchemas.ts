@@ -26,4 +26,20 @@ export const goalSchema = yup.object({
         })
 });
 
+export const contributionSchema = yup.object({
+    amount: yup
+        .number()
+        .typeError("Amount is required")
+        .required("Amount is required")
+        .positive("Amount must be greater than 0")
+        .test("max-amount", "Amount exceeds remaining goal", (value, context) => {
+            const { remaining } = context.options.context || {};
+
+            if (value === undefined || remaining === undefined) return true;
+
+            return value <= remaining;
+        })
+});
+
 export type GoalFormData = yup.InferType<typeof goalSchema>;
+export type ContributionFormData = yup.InferType<typeof contributionSchema>;

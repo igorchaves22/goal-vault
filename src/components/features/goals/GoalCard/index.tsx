@@ -1,12 +1,14 @@
 import { Icon } from "~components/ui";
 import { CATEGORY } from "~constants";
+import { renderElementIfTrue } from "~helpers";
+import { ContributeToGoalForm } from "../ContributeToGoalForm";
 import { EditGoalForm } from "../EditGoalForm";
 import { useHook } from "./hooks";
 import * as S from "./styles";
 import type { GoalCardProps } from "./types";
 
 export const GoalCard = (props: GoalCardProps) => {
-    const { handleDeleteGoal, formattedCreatedAt, formattedDeadline } = useHook(props);
+    const { handleDeleteGoal, formattedCreatedAt, formattedDeadline, isCompleted } = useHook(props);
 
     return (
         <S.StyledBox
@@ -116,24 +118,27 @@ export const GoalCard = (props: GoalCardProps) => {
                     </S.StyledText>
                 </S.StyledBox>
             </S.StyledBox>
-            <S.StyledBox
-                $wrap="nowrap"
-                $gap={1}
-            >
-                <Icon
-                    icon="Goal"
-                    $color="secondary"
-                    $size="sm"
-                />
-                <S.StyledText
-                    as="time"
-                    $color="secondary"
-                    $fontWeight="medium"
-                    $fontSize="xs"
-                    $textAlign="start"
+            <S.StyledBox $wrap="nowrap">
+                <S.StyledBox
+                    $wrap="nowrap"
+                    $gap={1}
                 >
-                    Due {formattedDeadline}
-                </S.StyledText>
+                    <Icon
+                        icon="Goal"
+                        $color="secondary"
+                        $size="sm"
+                    />
+                    <S.StyledText
+                        as="time"
+                        $color="secondary"
+                        $fontWeight="medium"
+                        $fontSize="xs"
+                        $textAlign="start"
+                    >
+                        Due {formattedDeadline}
+                    </S.StyledText>
+                </S.StyledBox>
+                {renderElementIfTrue(!isCompleted, <ContributeToGoalForm {...props} />)}
             </S.StyledBox>
         </S.StyledBox>
     );
