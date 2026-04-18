@@ -27,6 +27,7 @@
             "~hooks": ["./src/hooks"],
             "~pages": ["./src/pages"],
             "~router": ["./src/router"],
+            "~schemas": ["./src/schemas"],
             "~services": ["./src/services"],
             "~store": ["./src/store"],
             "~styles": ["./src/styles"],

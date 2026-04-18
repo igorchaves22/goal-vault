@@ -33,22 +33,21 @@ export const StyledBox = styled.div<StyledBoxProps>`
                 );
             `
         )};
-    ${(props) => createStyles(props)};
-`;
-
-export const StyledText = styled.span<StyledTextProps>`
-    ${ComponentText};
-
     ${({ theme, $isCategory }) =>
         applyStylesIfTrue(
             $isCategory,
             css`
                 border-radius: ${theme.radius.pill};
                 padding: ${`${theme.spacing[1]} ${theme.spacing[3]}`};
-                white-space: nowrap;
                 text-transform: capitalize;
             `
         )};
+    ${(props) => createStyles(props)};
+`;
+
+export const StyledText = styled.span<StyledTextProps>`
+    ${ComponentText};
+
     ${(props) => createStyles(props)};
 `;
 

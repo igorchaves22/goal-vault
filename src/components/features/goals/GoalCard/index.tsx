@@ -35,16 +35,27 @@ export const GoalCard = ({ name, category, budget, dates }: GoalCardProps) => {
                     >
                         {formattedCreatedAt}
                     </S.StyledText>
-                    <S.StyledText
+                    <S.StyledBox
                         $isCategory
                         $width="max-content"
+                        $wrap="nowrap"
+                        $gap={1}
                         $bgColor={category}
-                        $color="base"
-                        $fontWeight="medium"
-                        $fontSize="xs"
                     >
-                        {CATEGORY[category]}
-                    </S.StyledText>
+                        <S.StyledText
+                            as="i"
+                            $fontSize="xs"
+                        >
+                            {CATEGORY[category].icon}
+                        </S.StyledText>
+                        <S.StyledText
+                            $color="base"
+                            $fontWeight="medium"
+                            $fontSize="xs"
+                        >
+                            {category}
+                        </S.StyledText>
+                    </S.StyledBox>
                 </S.StyledBox>
             </S.StyledBox>
             <S.StyledBox

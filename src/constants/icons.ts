@@ -1,4 +1,4 @@
-import { CircleCheck, Goal, Moon, Sun, TrendingUp, X } from "lucide-react";
+import { CircleCheck, Goal, Moon, Plus, Sun, TrendingUp, X } from "lucide-react";
 
 export const ICONS = {
     X,
@@ -6,5 +6,6 @@ export const ICONS = {
     Moon,
     Goal,
     TrendingUp,
-    CircleCheck
+    CircleCheck,
+    Plus
 } as const;

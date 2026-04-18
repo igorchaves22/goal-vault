@@ -14,6 +14,7 @@ export default defineConfig({
             "~hooks": resolve(__dirname, "src/hooks"),
             "~pages": resolve(__dirname, "src/pages"),
             "~router": resolve(__dirname, "src/router"),
+            "~schemas": resolve(__dirname, "src/schemas"),
             "~services": resolve(__dirname, "src/services"),
             "~store": resolve(__dirname, "src/store"),
             "~styles": resolve(__dirname, "src/styles"),

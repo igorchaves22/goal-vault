@@ -34,7 +34,7 @@ export const ComponentLayoutBox = css`
 export const ComponentButton = css`
     ${MixinBox({ $width: "max-content", $bgColor: "transparent" })};
     ${MixinDisplayFlex({ $wrap: "nowrap" })};
-    ${MixinFlow({})};
+    ${MixinFlow({ $gap: 2 })};
     ${MixinText({})};
 
     border: none;

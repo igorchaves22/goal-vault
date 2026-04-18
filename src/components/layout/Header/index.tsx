@@ -1,3 +1,4 @@
+import { AddGoalForm } from "~components/features/goals";
 import { ToggleThemeButton } from "~components/features/theme";
 import { useHook } from "./hooks";
 import * as S from "./styles";
@@ -30,7 +31,13 @@ export const Header = () => {
                     </S.StyledText>
                     <S.StyledText>Track your savings and reach your targets</S.StyledText>
                 </S.StyledBox>
-                <ToggleThemeButton />
+                <S.StyledBox
+                    $width="max-content"
+                    $wrap="nowrap"
+                >
+                    <ToggleThemeButton />
+                    <AddGoalForm label="New Goal" />
+                </S.StyledBox>
             </S.StyledBox>
         </S.StyledBox>
     );

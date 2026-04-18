@@ -23,9 +23,24 @@ export const GOALS_INITIAL_STATE: GoalsState = {
     }
 };
 export const CATEGORY = {
-    travel: "✈️ travel",
-    education: "📚 education",
-    emergency: "🚨 emergency",
-    health: "💚 health",
-    other: "📌 other"
+    travel: {
+        icon: "✈️",
+        label: "travel"
+    },
+    education: {
+        icon: "📚",
+        label: "education"
+    },
+    emergency: {
+        icon: "🚨",
+        label: "emergency"
+    },
+    health: {
+        icon: "💚",
+        label: "health"
+    },
+    other: {
+        icon: "📌",
+        label: "other"
+    }
 } as const;

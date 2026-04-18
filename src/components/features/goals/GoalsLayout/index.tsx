@@ -1,5 +1,6 @@
 import bullseyeSvg from "~assets/svg/bullseye.svg";
 import { renderElementIfTrue } from "~helpers";
+import { AddGoalForm } from "../AddGoalForm";
 import { GoalsList } from "../GoalsList";
 import { GoalsStats } from "../GoalsStats";
 import { useHook } from "./hooks";
@@ -41,6 +42,7 @@ export const GoalsLayout = () => {
                 <br />
                 progress toward it.
             </S.StyledText>
+            <AddGoalForm label="Create Your First Goal" />
         </S.StyledBox>
     );
 };

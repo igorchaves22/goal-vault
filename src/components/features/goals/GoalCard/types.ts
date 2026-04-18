@@ -6,13 +6,9 @@ export interface StyledBoxProps extends Pick<
     "$width" | "$height" | "$wrap" | "$direction" | "$gap" | "$bgColor"
 > {
     $isContainer?: boolean;
+    $isCategory?: boolean;
     $progressBar?: number;
 }
-export interface StyledTextProps extends Pick<
-    StylesProps,
-    "$width" | "$bgColor" | "$color" | "$fontWeight" | "$fontSize" | "$textAlign"
-> {
-    $isCategory?: boolean;
-}
+export interface StyledTextProps extends Pick<StylesProps, "$color" | "$fontWeight" | "$fontSize" | "$textAlign"> {}
 export interface UseHookProps extends Pick<Goal, "dates"> {}
 export interface GoalCardProps extends Goal {}
