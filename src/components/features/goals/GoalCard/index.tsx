@@ -4,8 +4,8 @@ import { useHook } from "./hooks";
 import * as S from "./styles";
 import type { GoalCardProps } from "./types";
 
-export const GoalCard = ({ name, category, budget, dates }: GoalCardProps) => {
-    const { formattedCreatedAt, formattedDeadline } = useHook({ dates });
+export const GoalCard = ({ id, name, category, budget, dates }: GoalCardProps) => {
+    const { handleDeleteGoal, formattedCreatedAt, formattedDeadline } = useHook({ dates });
 
     return (
         <S.StyledBox
@@ -18,14 +18,27 @@ export const GoalCard = ({ name, category, budget, dates }: GoalCardProps) => {
                 $direction="column"
                 $gap={1}
             >
-                <S.StyledText
-                    as="h3"
-                    $fontWeight="semiBold"
-                    $fontSize="base"
-                    $textAlign="start"
-                >
-                    {name}
-                </S.StyledText>
+                <S.StyledBox $wrap="nowrap">
+                    <S.StyledText
+                        as="h3"
+                        $fontWeight="semiBold"
+                        $fontSize="base"
+                        $textAlign="start"
+                    >
+                        {name}
+                    </S.StyledText>
+                    <S.StyledButton
+                        type="button"
+                        aria-label="Delete goal"
+                        onClick={() => handleDeleteGoal(id)}
+                    >
+                        <Icon
+                            icon="Trash"
+                            $color="error"
+                            $size="sm"
+                        />
+                    </S.StyledButton>
+                </S.StyledBox>
                 <S.StyledBox $wrap="nowrap">
                     <S.StyledText
                         as="time"

@@ -33,6 +33,12 @@ export const goalsSlice = createSlice({
 
             state.data.goals.push(newGoal);
             state.data.stats.totalGoals += 1;
+        },
+        deleteGoal: (state, action: PayloadAction<number>) => {
+            state.data.goals = state.data.goals.filter((goal) => goal.id !== action.payload);
+            state.data.stats.totalGoals -= 1;
+
+            if (state.data.goals.length === 0) state.hasData = false;
         }
     }
 });

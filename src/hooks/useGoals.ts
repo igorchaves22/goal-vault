@@ -11,6 +11,7 @@ export const useGoals = () => {
         (payload: AddGoalPayload) => dispatch(actions.goals.addGoal(payload)),
         [dispatch]
     );
+    const handleDeleteGoal = useCallback((payload: number) => dispatch(actions.goals.deleteGoal(payload)), [dispatch]);
 
-    return { state, handleLoadDB, handleAddGoal };
+    return { state, handleLoadDB, handleAddGoal, handleDeleteGoal };
 };

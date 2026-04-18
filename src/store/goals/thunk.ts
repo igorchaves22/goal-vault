@@ -39,3 +39,18 @@ export const addGoalThunk = createAsyncThunk(
         ]);
     }
 );
+
+export const deleteGoalThunk = createAsyncThunk(
+    `${GOALS_SLICE_NAME}/deleteGoal`,
+    async (payload: number, { dispatch, getState }) => {
+        dispatch(goalsSlice.actions.deleteGoal(payload));
+
+        const state = (getState() as RootState).goals;
+        const db = await openGoalsDB();
+
+        await Promise.all([
+            setGoalsToDB(db, GOALS_DB_STORE_NAMES.goals, state.data.goals),
+            setGoalsToDB(db, GOALS_DB_STORE_NAMES.stats, state.data.stats)
+        ]);
+    }
+);

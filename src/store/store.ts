@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { goalsSlice } from "./goals/slice";
-import { addGoalThunk, loadDBThunk } from "./goals/thunk";
+import { addGoalThunk, deleteGoalThunk, loadDBThunk } from "./goals/thunk";
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +11,8 @@ export const store = configureStore({
 export const actions = {
     goals: {
         loadDB: loadDBThunk,
-        addGoal: addGoalThunk
+        addGoal: addGoalThunk,
+        deleteGoal: deleteGoalThunk
     }
 };
 
