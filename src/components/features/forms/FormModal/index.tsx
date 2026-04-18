@@ -19,7 +19,6 @@ export const FormModal = <T,>({ triggerButton, form, children }: FormModalProps<
             >
                 <Icon
                     icon={triggerButton.icon}
-                    strokeWidth={3}
                     $color={triggerButton.isTriggerVariant ? "base" : "primary"}
                     $size="sm"
                 />

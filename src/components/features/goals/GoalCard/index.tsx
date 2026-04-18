@@ -1,11 +1,12 @@
 import { Icon } from "~components/ui";
 import { CATEGORY } from "~constants";
+import { EditGoalForm } from "../EditGoalForm";
 import { useHook } from "./hooks";
 import * as S from "./styles";
 import type { GoalCardProps } from "./types";
 
-export const GoalCard = ({ id, name, category, budget, dates }: GoalCardProps) => {
-    const { handleDeleteGoal, formattedCreatedAt, formattedDeadline } = useHook({ dates });
+export const GoalCard = (props: GoalCardProps) => {
+    const { handleDeleteGoal, formattedCreatedAt, formattedDeadline } = useHook(props);
 
     return (
         <S.StyledBox
@@ -25,19 +26,26 @@ export const GoalCard = ({ id, name, category, budget, dates }: GoalCardProps) =
                         $fontSize="base"
                         $textAlign="start"
                     >
-                        {name}
+                        {props.name}
                     </S.StyledText>
-                    <S.StyledButton
-                        type="button"
-                        aria-label="Delete goal"
-                        onClick={() => handleDeleteGoal(id)}
+                    <S.StyledBox
+                        $width="max-content"
+                        $wrap="nowrap"
+                        $gap={2}
                     >
-                        <Icon
-                            icon="Trash"
-                            $color="error"
-                            $size="sm"
-                        />
-                    </S.StyledButton>
+                        <EditGoalForm {...props} />
+                        <S.StyledButton
+                            type="button"
+                            aria-label="Delete goal"
+                            onClick={() => handleDeleteGoal(props.id)}
+                        >
+                            <Icon
+                                icon="Trash"
+                                $color="error"
+                                $size="sm"
+                            />
+                        </S.StyledButton>
+                    </S.StyledBox>
                 </S.StyledBox>
                 <S.StyledBox $wrap="nowrap">
                     <S.StyledText
@@ -53,20 +61,20 @@ export const GoalCard = ({ id, name, category, budget, dates }: GoalCardProps) =
                         $width="max-content"
                         $wrap="nowrap"
                         $gap={1}
-                        $bgColor={category}
+                        $bgColor={props.category}
                     >
                         <S.StyledText
                             as="i"
                             $fontSize="xs"
                         >
-                            {CATEGORY[category].icon}
+                            {CATEGORY[props.category].icon}
                         </S.StyledText>
                         <S.StyledText
                             $color="base"
                             $fontWeight="medium"
                             $fontSize="xs"
                         >
-                            {category}
+                            {props.category}
                         </S.StyledText>
                     </S.StyledBox>
                 </S.StyledBox>
@@ -80,31 +88,31 @@ export const GoalCard = ({ id, name, category, budget, dates }: GoalCardProps) =
                         $fontWeight="bold"
                         $textAlign="start"
                     >
-                        ${budget.currentAmount}
+                        ${props.budget.currentAmount}
                     </S.StyledText>
                     <S.StyledText
                         $color="secondary"
                         $fontSize="xs"
                         $textAlign="end"
                     >
-                        ${budget.targetAmount}
+                        ${props.budget.targetAmount}
                     </S.StyledText>
                 </S.StyledBox>
-                <S.StyledBox $progressBar={budget.progressPercent} />
+                <S.StyledBox $progressBar={props.budget.progressPercent} />
                 <S.StyledBox $wrap="nowrap">
                     <S.StyledText
                         $color="secondary"
                         $fontSize="xs"
                         $textAlign="start"
                     >
-                        {budget.progressPercent}% saved
+                        {props.budget.progressPercent}% saved
                     </S.StyledText>
                     <S.StyledText
                         $color="secondary"
                         $fontSize="xs"
                         $textAlign="end"
                     >
-                        ${budget.remaining} remaining
+                        ${props.budget.remaining} remaining
                     </S.StyledText>
                 </S.StyledBox>
             </S.StyledBox>

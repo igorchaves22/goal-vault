@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { GOALS_INITIAL_STATE, GOALS_SLICE_NAME } from "~constants";
 import { generateId } from "~helpers";
 import type { Goal, GoalsState } from "~types";
-import type { AddGoalPayload } from "./types";
+import type { AddGoalPayload, EditGoalPayload } from "./types";
 
 export const goalsSlice = createSlice({
     name: GOALS_SLICE_NAME,
@@ -33,6 +33,21 @@ export const goalsSlice = createSlice({
 
             state.data.goals.push(newGoal);
             state.data.stats.totalGoals += 1;
+        },
+        editGoal: (state, action: PayloadAction<EditGoalPayload>) => {
+            const goal = state.data.goals.find((goal) => goal.id === action.payload.id);
+
+            if (!goal) return;
+
+            goal.name = action.payload.name;
+            goal.category = action.payload.category;
+            goal.budget = {
+                ...goal.budget,
+                targetAmount: action.payload.targetAmount,
+                progressPercent: Math.round((goal.budget.currentAmount / action.payload.targetAmount) * 100),
+                remaining: action.payload.targetAmount - goal.budget.currentAmount
+            };
+            goal.dates.deadline = action.payload.deadline;
         },
         deleteGoal: (state, action: PayloadAction<number>) => {
             state.data.goals = state.data.goals.filter((goal) => goal.id !== action.payload);

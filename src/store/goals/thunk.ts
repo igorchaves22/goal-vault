@@ -3,7 +3,7 @@ import { GOALS_DB_STORE_NAMES, GOALS_SLICE_NAME } from "~constants";
 import { getGoalsFromDB, openGoalsDB, setGoalsToDB } from "~services";
 import type { RootState } from "../store";
 import { goalsSlice } from "./slice";
-import type { AddGoalPayload } from "./types";
+import type { AddGoalPayload, EditGoalPayload } from "./types";
 
 export const loadDBThunk = createAsyncThunk(`${GOALS_SLICE_NAME}/loadDB`, async (_, { dispatch }) => {
     const db = await openGoalsDB();
@@ -37,6 +37,18 @@ export const addGoalThunk = createAsyncThunk(
             setGoalsToDB(db, GOALS_DB_STORE_NAMES.goals, state.data.goals),
             setGoalsToDB(db, GOALS_DB_STORE_NAMES.stats, state.data.stats)
         ]);
+    }
+);
+
+export const editGoalThunk = createAsyncThunk(
+    `${GOALS_SLICE_NAME}/editGoal`,
+    async (payload: EditGoalPayload, { dispatch, getState }) => {
+        dispatch(goalsSlice.actions.editGoal(payload));
+
+        const state = (getState() as RootState).goals;
+        const db = await openGoalsDB();
+
+        await setGoalsToDB(db, GOALS_DB_STORE_NAMES.goals, state.data.goals);
     }
 );
 
